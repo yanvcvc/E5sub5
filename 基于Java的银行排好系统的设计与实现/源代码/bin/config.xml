@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jdbc>
+		<driver>oracle.jdbc.driver.OracleDriver</driver><!--驱动程序类-->
+		<url>jdbc:oracle:thin:@localhost:1521:orcl</url>
+		<!-- <url>jdbc:oracle:thin:@localhost:1521:XE</url> -->
+		<!--数据库连接所用URL-->
+		<user>scott</user><!--连接数据库所用用户名-->
+		<password>tiger</password><!--连接数据库所用密码-->
+</jdbc> 
