@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC   
+     "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"   
+     "http://struts.apache.org/dtds/struts-2.0.dtd">
+     
+     
+<struts>
+    <package name="liu" extends="struts-default">
+        <global-results>
+            <result name="exception">/common/exception.jsp</result>
+            <result name="succeed1">/success/success.jsp</result>
+            <result name="succeed">/success/succeed.jsp</result>
+        </global-results>
+        
+        <action name="adminLogin" class="userAction" method="adminLogin">
+             <result name="error">/admin/login.jsp</result>
+             <result name="success">/admin/index.jsp</result>
+        </action>
+        
+        
+        
+        <action name="userPwEdit" class="userAction" method="userPwEdit">
+        </action>
+        <action name="userReg" class="userAction" method="userReg">
+        </action>
+        <action name="userXiugai" class="userAction" method="userXiugai">
+        </action>
+        <action name="userLogin" class="userAction" method="userLogin">
+             <result name="success">/index.jsp</result>
+             <result name="error">/index.jsp</result>
+        </action>
+        <action name="userLogout" class="userAction" method="userLogout">
+             <result name="success">/index.jsp</result>
+        </action>
+        <action name="userAdd" class="userAction" method="userAdd">
+        </action>
+        <action name="delUser" class="userAction" method="delUser">
+        </action>
+        <action name="userManage" class="userAction" method="userManage">
+             <result name="success">/admin/user/userManage.jsp</result>
+        </action>
+        <action name="huiyuanManage" class="userAction" method="huiyuanManage">
+             <result name="success">/admin/huiyuan/huiyuanManage.jsp</result>
+        </action>
+        <action name="huiyuanAdd" class="userAction" method="huiyuanAdd">
+        </action>
+        <action name="huiyuanDel" class="userAction" method="huiyuanDel">
+        </action>
+        <action name="huiyuanSearch" class="userAction" method="huiyuanSearch">
+             <result name="success">/admin/huiyuan/huiyuanManage.jsp</result>
+        </action>
+        
+        
+        
+        
+        <action name="cardAdd" class="CardAction" method="cardAdd">
+        </action>
+        <action name="cardDel" class="CardAction" method="cardDel">
+        </action>
+        <action name="cardManage" class="CardAction" method="cardManage">
+            <result>/admin/card/cardManage.jsp</result>
+        </action>
+        
+        
+        
+        <action name="qicaiAdd" class="QicaiAction" method="qicaiAdd">
+        </action>
+        <action name="qicaiDel" class="QicaiAction" method="qicaiDel">
+        </action>
+        <action name="qicaiManage" class="QicaiAction" method="qicaiManage">
+           <result>/admin/qicai/qicaiManage.jsp</result>
+        </action>
+        
+        
+        <action name="zhijiaoAdd" class="zhijiaoAction" method="zhijiaoAdd">
+        </action>
+        <action name="zhijiaoDel" class="zhijiaoAction" method="zhijiaoDel">
+        </action>
+        <action name="zhijiaoManage" class="zhijiaoAction" method="zhijiaoManage">
+           <result>/admin/zhijiao/zhijiaoManage.jsp</result>
+        </action>
+    </package>
+</struts>
