@@ -13,6 +13,11 @@ import javax.servlet.http.HttpServletRequest;
  */
 public interface UserService extends IService<User> {
     /**
+     * 用户登录态键
+     */
+    String USER_LOGINI_STATE = "userLoginState";
+
+    /**
      * 用户注册
      *
      * @param userAccount   用户账户

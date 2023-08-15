@@ -1,17 +1,17 @@
 package com.yupi.usercenter.controller;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.yupi.usercenter.model.domain.User;
 import com.yupi.usercenter.model.request.UserLoginRequest;
 import com.yupi.usercenter.model.request.UserRegisterRequest;
 import com.yupi.usercenter.service.UserService;
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 @RequestMapping("/user")
@@ -56,6 +56,39 @@ public class UserController {
             return null;
         }
         return userService.userLogin(userAccount,userPassword,request);
+
+    }
+
+    /**
+     * 查询接口
+     *
+     * @param username 用户名
+     * @return 用户信息
+     */
+    @GetMapping("/search")
+    public List<User> searchUsers(String username,HttpServletRequest request){
+        //1.鉴权 仅管理员可以查询，从session中拿去登录态
+        Object userObj = request.getSession().getAttribute(UserService.USER_LOGINI_STATE);
+        User user = (User) userObj;
+
+        if (user == null || user.getRole()!=1){
+            return new ArrayList<>();
+        }
+        QueryWrapper<User> queryWrapper = new QueryWrapper<>();
+        if (StringUtils.isNotBlank(username)){
+            queryWrapper.like("username",username);
+        }
+        return userService.list(queryWrapper);
+
+
+    }
+
+    @PostMapping ("/delete")
+    public boolean deleteUser(@RequestBody long id){
+        if (id<=0){
+            return false;
+        }
+        return userService.removeById(id);
 
     }
 

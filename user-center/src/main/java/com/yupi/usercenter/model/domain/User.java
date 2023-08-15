@@ -58,6 +58,10 @@ public class User implements Serializable {
      * 状态 0-正常
      */
     private Integer userStatus;
+    /**
+     * 角色 0-普通用户 1-管理员
+     */
+    private Integer role;
 
     /**
      * 创建时间

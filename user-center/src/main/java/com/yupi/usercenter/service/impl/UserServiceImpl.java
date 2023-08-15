@@ -34,10 +34,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
      * 加盐
      */
     private static final String SALT = "yupi";
-    /**
-     * 用户登录态键
-     */
-    private static final String USER_LOGINI_STATE = "userLoginState";
+
 
     @Override
     public long userRegister(String userAccount, String userPassword, String checkPassword) {
